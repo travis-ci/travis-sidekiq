@@ -21,6 +21,13 @@ GIT
       thor (~> 0.14.6)
 
 GIT
+  remote: git://github.com/travis-ci/travis-sidekiqs.git
+  revision: 818ac36fb991315e11c0a1369ea7c54639fe28b6
+  specs:
+    travis-sidekiqs (0.0.1)
+      sidekiq (~> 2.6.0)
+
+GIT
   remote: git://github.com/travis-ci/travis-sso.git
   revision: 7d5bc6ee2e7336c973734ec28f60e099fb98fda1
   specs:
@@ -187,5 +194,6 @@ DEPENDENCIES
   slim
   thin
   travis-core!
+  travis-sidekiqs!
   travis-sso!
   travis-support!
