@@ -153,6 +153,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redis (3.2.2)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     rollout (1.1.0)
     rotp (2.1.1)
     s3 (0.3.23)
@@ -204,6 +206,7 @@ PLATFORMS
 DEPENDENCIES
   rack
   rack-ssl
+  redis-namespace
   sidekiq
   sinatra
   slim

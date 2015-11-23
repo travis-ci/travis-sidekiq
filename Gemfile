@@ -17,6 +17,7 @@ end
 
 group :sidekiq do
   gem 'sidekiq'
+  gem 'redis-namespace'
   gem 'sinatra'
   gem 'slim'
 end
