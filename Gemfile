@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.6'
 
 group :travis do
   gem 'travis-core',     github: 'travis-ci/travis-core'
