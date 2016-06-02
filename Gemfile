@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.1.6'
-
 group :travis do
   gem 'travis-core',     github: 'travis-ci/travis-core'
   gem 'travis-sso',      github: 'travis-ci/travis-sso'
