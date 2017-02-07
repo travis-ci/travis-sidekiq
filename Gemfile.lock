@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/travis-ci/travis-core.git
+  remote: https://github.com/travis-ci/travis-core.git
   revision: 3c20e66a20d9d540e2a6c5fb70c542fe97c62e25
   specs:
     travis-core (0.0.1)
@@ -23,14 +23,14 @@ GIT
       virtus (~> 1.0.0)
 
 GIT
-  remote: git://github.com/travis-ci/travis-sidekiqs.git
+  remote: https://github.com/travis-ci/travis-sidekiqs.git
   revision: 21a2fee158e25252dd78f5fa31e81b4f6583be23
   specs:
     travis-sidekiqs (0.0.1)
       sidekiq
 
 GIT
-  remote: git://github.com/travis-ci/travis-sso.git
+  remote: https://github.com/travis-ci/travis-sso.git
   revision: d83e00b0651d3d636f5dad808b3e11ade41ec719
   specs:
     travis-sso (0.0.1)
@@ -40,7 +40,7 @@ GIT
       yubikey
 
 GIT
-  remote: git://github.com/travis-ci/travis-support.git
+  remote: https://github.com/travis-ci/travis-support.git
   revision: 2cd02d2a06fdd1e2fc2f129148c168b56f7c190f
   specs:
     travis-support (0.0.1)
