@@ -10,6 +10,7 @@ if ENV['RACK_ENV'] == 'production'
       endpoint:     Travis.config.api_endpoint,
       mode:         :session,
       authorized?:  -> u { Travis.config.admins.include? u['login'] }
+  Sidekiq::Web.use Rack::Protection, use: :authenticity_token
 end
 
 Travis::Async::Sidekiq.setup(Travis.config.redis.url, Travis.config.sidekiq)
