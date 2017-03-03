@@ -1,7 +1,7 @@
 require 'sidekiq/web'
 require 'travis'
 
-if ENV['RACK_ENV'] == 'production'
+if ENV['RACK_ENV'] != 'development'
   require 'rack/ssl'
   require 'travis/sso'
   Sidekiq::Web.session_secret = Travis.config.session_secret
