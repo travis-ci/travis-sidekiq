@@ -6,14 +6,6 @@ GIT
       hashr (~> 2.0)
 
 GIT
-  remote: https://github.com/travis-ci/travis-sidekiqs.git
-  revision: c5d4a4abc6c3737f9c43d3333efb94daa18b9fbb
-  specs:
-    travis-sidekiqs (0.0.1)
-      redis-namespace
-      sidekiq
-
-GIT
   remote: https://github.com/travis-ci/travis-sso.git
   revision: 8b41951a7a1905978ae3bb6ecaffa88f2f22d3d7
   specs:
@@ -75,7 +67,6 @@ DEPENDENCIES
   slim
   thin
   travis-config!
-  travis-sidekiqs!
   travis-sso!
 
 RUBY VERSION
