@@ -1,5 +1,5 @@
 require 'sidekiq/web'
-require 'travis'
+require 'travis/config'
 
 if ENV['RACK_ENV'] != 'development'
   require 'rack/ssl'
