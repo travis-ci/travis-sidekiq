@@ -3,10 +3,8 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 group :travis do
-  gem 'travis-core',     git: 'https://github.com/travis-ci/travis-core.git'
+  gem 'travis-config',   git: 'https://github.com/travis-ci/travis-config'
   gem 'travis-sso',      git: 'https://github.com/travis-ci/travis-sso.git'
-  gem 'travis-support',  git: 'https://github.com/travis-ci/travis-support.git'
-  gem 'travis-sidekiqs', git: 'https://github.com/travis-ci/travis-sidekiqs.git'
 end
 
 group :rack do

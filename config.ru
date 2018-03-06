@@ -1,5 +1,19 @@
+require 'sidekiq'
 require 'sidekiq/web'
-require 'travis'
+require 'travis/config'
+
+module Travis
+  class Config < Hashr
+    define  sidekiq: { namespace: 'sidekiq', pool_size: 1 },
+            redis:   { url: 'redis://localhost:6379' }
+  end
+
+  def self.config
+    @config ||= Travis::Config.load
+  end
+end
+
+
 
 if ENV['RACK_ENV'] != 'development'
   require 'rack/ssl'
@@ -13,5 +27,8 @@ if ENV['RACK_ENV'] != 'development'
   Sidekiq::Web.use Rack::Protection, use: :authenticity_token
 end
 
-Travis::Async::Sidekiq.setup(Travis.config.redis.url, Travis.config.sidekiq)
+Sidekiq.configure_client do |config|
+  config.redis = Travis.config.redis.to_h.merge(size: 1, namespace: Travis.config.sidekiq.namespace)
+end
+
 run Sidekiq::Web
