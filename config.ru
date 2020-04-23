@@ -4,7 +4,7 @@ require 'travis/config'
 
 module Travis
   class Config < Hashr
-    define  sidekiq: { namespace: 'sidekiq', pool_size: 1 },
+    define  sidekiq: { namespace: 'sidekiq', pool_size: 1, id: nil },
             redis:   { url: 'redis://localhost:6379' }
   end
 
@@ -28,7 +28,7 @@ if ENV['RACK_ENV'] != 'development'
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = Travis.config.redis.to_h.merge(size: 1, namespace: Travis.config.sidekiq.namespace)
+  config.redis = Travis.config.redis.to_h.merge(size: 1, namespace: Travis.config.sidekiq.namespace, id: nil)
 end
 
 run Sidekiq::Web
