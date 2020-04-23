@@ -22,4 +22,4 @@ RUN bundler install --verbose --retry=3 --deployment --without development test
 
 COPY . /app
 
-CMD ["bundle", "exec", "thin", "start", "-R", "config.ru", "-e", "$RACK_ENV", "-p", "$PORT"]
+CMD ["/bin/bash", "-c", "bundle exec thin start -R config.ru -e ${RACK_ENV} -p ${PORT:-4500}"]
