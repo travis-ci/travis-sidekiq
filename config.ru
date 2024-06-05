@@ -4,7 +4,7 @@ require 'travis/config'
 
 module Travis
   class Config < Hashr
-    define  sidekiq: { 'sidekiq', pool_size: 1, id: nil },
+    define  sidekiq: { pool_size: 1, id: nil },
             redis:   { url: 'redis://localhost:6379' }
   end
 
