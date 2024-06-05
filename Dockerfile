@@ -1,4 +1,4 @@
-FROM ruby:2.6.6-slim
+FROM ruby:3.2.4-slim
 
 LABEL maintainer Travis CI GmbH <support+monitor-docker-images@travis-ci.com>
 
@@ -22,4 +22,4 @@ RUN bundler install --verbose --retry=3 --deployment --without development test
 
 COPY . /app
 
-CMD ["/bin/bash", "-c", "bundle exec thin start -R config.ru -e ${RACK_ENV} -p ${PORT:-4500}"]
+CMD ["/bin/bash", "-c", "bundle exec thin -R config.ru -e ${RACK_ENV} -p ${PORT:-4500} start"]
