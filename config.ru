@@ -1,6 +1,7 @@
-require 'sidekiq'
-require 'sidekiq/web'
-require 'travis/config'
+require "sidekiq"
+require "sidekiq/web"
+require "travis/config"
+require "rack/session/cookie"
 
 module Travis
   class Config < Hashr
@@ -12,7 +13,6 @@ module Travis
     @config ||= Travis::Config.load
   end
 end
-
 
 File.open('.session.key', 'w') { |f| f.write(Travis.config.session_secret) }
 
@@ -27,7 +27,7 @@ if ENV['RACK_ENV'] != 'development'
       authorized?:  -> u { Travis.config.admins.include? u['login'] }
 end
 
-use Rack::Session::Cookie, secret: File.read(".session.key"), same_site: true, max_age: 86400
+use Rack::Session::Cookie, secret: File.read(".session.key"), same_site: :strict, max_age: 86400
 
 Sidekiq.configure_client do |config|
   config.redis = Travis.config.redis.to_h.merge(size: 1, id: nil)

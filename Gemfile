@@ -9,12 +9,12 @@ end
 
 group :rack do
   gem 'rack-ssl'
-  gem 'rack'
-  gem 'thin' , '~> 1.8'
+  gem 'rack', '~> 2.0'
+  gem 'thin'
 end
 
 group :sidekiq do
   gem 'sidekiq'
-  gem 'sinatra', '~> 2'
+  gem 'sinatra'
   gem 'slim'
 end
