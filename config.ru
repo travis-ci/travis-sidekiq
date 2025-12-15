@@ -1,4 +1,5 @@
 require 'sidekiq'
+require 'sidekiq-pro'
 require 'sidekiq/web'
 require 'travis/config'
 

@@ -1,4 +1,4 @@
-FROM ruby:3.2.4-slim
+FROM ruby:3.2.9-slim
 
 LABEL maintainer Travis CI GmbH <support+monitor-docker-images@travis-ci.com>
 
@@ -18,7 +18,10 @@ WORKDIR /app
 COPY Gemfile      /app
 COPY Gemfile.lock /app
 
-RUN bundler install --verbose --retry=3 --deployment --without development test
+ARG bundle_gems__contribsys__com
+RUN bundle config https://gems.contribsys.com/ $bundle_gems__contribsys__com \
+      && bundler install --verbose --retry=3 --deployment \
+      && bundle config --delete https://gems.contribsys.com/
 
 COPY . /app
 
