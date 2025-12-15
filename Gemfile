@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.2.4'
+ruby '3.2.9'
 
 group :travis do
   gem 'travis-config',   git: 'https://github.com/travis-ci/travis-config'
@@ -13,8 +13,7 @@ group :rack do
   gem 'thin' , '~> 1.8'
 end
 
-group :sidekiq do
-  gem 'sidekiq'
-  gem 'sinatra', '~> 2'
-  gem 'slim'
-end
+
+gem 'sidekiq-pro', require: 'sidekiq-pro', source: 'https://gems.contribsys.com'
+gem 'sinatra', '~> 2'
+gem 'slim'
